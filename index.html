@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quran & Diniyat Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container" id="registration-container">
+        <div class="quiz-container">
+            <div class="logo-container">
+                <img src="quran logo.PNG" alt="Al Quran Logo" class="logo">
+            </div>
+            <div class="author">Faizyab Hussain</div>
+            <h1>Welcome to Quiz</h1>
+            <div class="subtitle">Diniyat & Quran</div>
+
+            <form id="registration-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="motherName">Guardian Name <span class="required">*</span></label>
+                        <div class="name-inputs">
+                            <input type="text" id="motherName" placeholder="Mother Name" required>
+                            <input type="text" id="fatherName" placeholder="Father Name" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">Name <span class="required">*</span></label>
+                        <div class="name-inputs">
+                            <input type="text" id="firstName" placeholder="First Name" required>
+                            <input type="text" id="lastName" placeholder="Last Name" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <label for="gender">Gender <span class="required">*</span></label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="gender" id="male" value="Male" required> <span
+                                    class="text-color">Male</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="gender" id="female" value="Female" required> <span
+                                    class="text-color">Female</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="age">Age <span class="required">*</span></label>
+                        <input type="number" id="age" placeholder="Enter Age" required>
+                    </div>
+                </div>
+                <div class="form-group full-width">
+                    <label for="country">Country <span class="required">*</span></label>
+                    <select id="country" required>
+                        <option value="">Select Country</option>
+                        <option value="AF">Afghanistan</option>
+                        <option value="PK">Pakistan</option>
+                        <option value="SA">Saudi Arabia</option>
+                        <option value="AE">United Arab Emirates</option>
+                        <option value="US">United States</option>
+                        <option value="UK">United Kingdom</option>
+                        <!-- Add more countries as needed -->
+                    </select>
+                </div>
+
+                <button type="submit" id="start-quiz-btn">Start Quiz</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="container hidden" id="quiz-container">
+        <div class="quiz-container">
+            <div class="quiz-header">
+                <div class="quiz-info">
+                    <div id="user-name"></div>
+                    <div id="timer">Time: <span id="time">00:00</span></div>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress" id="progress"></div>
+                    </div>
+                    <div class="question-counter">
+                        Question <span id="current-question">1</span> of <span id="total-questions">10</span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="question-container">
+                <h2 id="question-text"></h2>
+                <div id="options-container"></div>
+            </div>
+
+            <div class="quiz-footer">
+                <button id="prev-btn" disabled>Previous</button>
+                <button id="next-btn">Next</button>
+                <button id="submit-btn" class="hidden">Submit Quiz</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container hidden" id="result-container">
+        <div class="quiz-container">
+            <h1>Quiz Results</h1>
+            <div class="result-info">
+                <div class="user-details">
+                    <p class="text-color">Guardian Name:- </p>
+                    <div>
+                    <p>Mother Name: <span class="text-color-new" id="result-guardian-M-name"></span></p>
+                    <p>Father Name: <span class="text-color-new" id="result-guardian-F-name"></span></p>
+                    </div>
+                    <p class="text-color">Name: <span class="text-color-new" id="result-name"></span></p>
+                </div>
+                <div class="score-details">
+                    <div class="score-circle">
+                        <div class="score-text">
+                            <span id="score-percentage">0%</span>
+                            <span class="score-label">Score</span>
+                        </div>
+                    </div>
+                    <div class="score-breakdown">
+                        <p>Correct Answers: <span id="correct-answers">0</span>/<span
+                                id="total-questions-result">10</span></p>
+                        <p>Time Taken: <span id="time-taken">00:00</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="result-actions">
+                <button id="review-btn">Review Answers</button>
+                <button id="restart-btn">Take Quiz Again</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container hidden" id="review-container">
+        <div class="quiz-container">
+            <h1>Review Answers</h1>
+            <div id="review-questions"></div>
+            <button id="back-to-results">Back to Results</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
